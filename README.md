@@ -35,11 +35,11 @@ The application uses the free DummyJSON API to retrieve and display product info
 
 The application is organized into the following folders:
 
-models/ — contains the Product data model.
-services/ — handles communication with the DummyJSON API.
-cubits/ — manages product states and application logic using Cubit.
-screens/ — contains the product list and product detail UI.
-main.dart — initializes the application and provides the ProductCubit.
+* **models/** — contains the Product data model.
+* **services/** — handles communication with the DummyJSON API.
+* **cubits/** — manages product states and application logic using Cubit.
+* **screens/** — contains the product list and product detail UI.
+* **main.dart** — initializes the application and provides the ProductCubit.
 
 ## Architecture
 
