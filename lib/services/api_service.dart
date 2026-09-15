@@ -5,7 +5,7 @@ import '../models/product.dart';
 class ApiService {
   static const String _baseUrl = 'https://dummyjson.com';
 
-  Future<List<Product>> getProducts({int limit = 2, int skip = 0}) async {
+  Future<List<Product>> getProducts({int limit = 20, int skip = 0}) async {
     final url = Uri.parse('$_baseUrl/products?limit=$limit&skip=$skip');
     final response = await http.get(url);
 
