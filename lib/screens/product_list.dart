@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import '../cubits/product_cubit.dart';
 import 'product_detail.dart';
 
@@ -218,11 +219,19 @@ class _ProductListScreenState extends State<ProductListScreen> {
                               children: [
                                 // Product thumbnail
                                 Expanded(
-                                  child: Image.network(
-                                    product.thumbnail,
-                                    width: double.infinity,
-                                    fit: BoxFit.cover,
-                                  ),
+                                  child: CachedNetworkImage(
+                                            imageUrl: product.thumbnail,
+                                            width: double.infinity,
+                                            fit: BoxFit.cover,
+                                            placeholder: (context, url) => Container(
+                                                color: Colors.grey.shade100,
+                                                child: const Center(
+                                                    child: CircularProgressIndicator(strokeWidth: 2),
+                                                ),
+                                            ),
+                                            errorWidget: (context, url, error) =>
+                                                const Icon(Icons.broken_image, color: Colors.grey),
+                                        ),
                                 ),
 
                                 // Product title and price
